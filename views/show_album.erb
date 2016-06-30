@@ -1,0 +1,6 @@
+<b>Name:</b>
+<p><%= @album.name() %></p>
+<b>Year:</b>
+<p><%= @album.year %> </p>
+<form action="/album/<%= @album.id %>/delete" method="post">
+  <input type="submit" value="Delete" >

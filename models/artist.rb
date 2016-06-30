@@ -20,6 +20,13 @@ class Artist
     return albums_array = albums_data.map {|album| Album.new(album)} #to convert to an array of objects
   end
 
+  def self.find(id)
+    sql="SELECT * FROM artists WHERE id=#{id};"
+    artist = run_sql(sql)
+    result = Artist.new(artist.first)
+    return result
+  end
+
   def self.all
     sql = "SELECT * FROM artists;"
     artists = run_sql(sql)
@@ -27,5 +34,18 @@ class Artist
     #db.close
     return result
   end
+
+  def self.update(options)
+    sql = "UPDATE artists SET 
+          name = '#{options['name']}',
+          WHERE id = '#{options['id']}';"
+    run_sql(sql)
+  end
+
+  def self.destroy(id)
+    sql="DELETE FROM artists WHERE id=#{id};"
+    run_sql(sql)
+  end
+
 end
 

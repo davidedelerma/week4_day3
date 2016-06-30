@@ -1,5 +1,7 @@
-<%= @artist.name() %>
-<% @artists.albums.each do |album| %> 
-  <p><%= album.name %></p>
-    <a href="/album/#{album.id}" >View</a>
-<% end %>
+<% @artists.each do |artist|  %>
+  <br><b> <%= artist.name%> </b> <a href="/artist/<%= artist.id %>">View Artist</a</br>
+  <% albums= artist.albums%>
+  <% albums.each do |album| %>
+     <p> <%= album.name %> <a href="/album/<%= album.id %>">View Album</a> <a href="/album/<%= album.id %>/edit">Edit Album</a></p>
+  <%end%> 
+<%end%>

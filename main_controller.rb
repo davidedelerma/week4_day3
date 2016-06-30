@@ -7,6 +7,7 @@ require_relative('./artist_controller')
 require_relative('./album_controller')
 
 get '/library' do
+  @artists = Artist.all()
   #binding.pry
   erb(:library)
 end
